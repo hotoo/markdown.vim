@@ -1,0 +1,20 @@
+
+# Intro
+
+这个项目目前主要做转化/翻译 Markdown 语法的使用手册文档为 Vim 格式，用于方便
+在 Vim 中查看其离线文档。
+
+例如安装文档后，可以直接 `:h markdown-link` 查看书写链接的格式。
+
+# Syntax
+已知的 Markdown 语法高亮支持已有人实现：
+
+* [Markdown #2882](http://www.vim.org/scripts/script.php?script_id=2882)
+    * [@github](https://github.com/hallison/vim-markdown)
+* [Markdown syntax #1242](http://www.vim.org/scripts/script.php?script_id=1242)
+    * [Markdown Vim Mode](http://plasticboy.com/markdown-vim-mode/)
+    * [@github](https://github.com/plasticboy/vim-markdown)
+* [vim-markdown@github](https://github.com/tpope/vim-markdown)
+
+# Others
+其他还可以做的包括补全，命令，快捷键，转换成 HTML 文档。
