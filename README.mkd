@@ -15,6 +15,8 @@
     * [Markdown Vim Mode](http://plasticboy.com/markdown-vim-mode/)
     * [@github](https://github.com/plasticboy/vim-markdown)
 * [vim-markdown@github](https://github.com/tpope/vim-markdown)
+* [preview: Plugin for previewing markup files(markdown,rdoc,textile,html)](http://www.vim.org/scripts/script.php?script_id=3344)
+    * [@github](https://github.com/greyblake/vim-preview)
 
 # Others
 其他还可以做的包括补全，命令，快捷键，转换成 HTML 文档。
