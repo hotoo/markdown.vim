@@ -1,10 +1,10 @@
 
 # Intro
 
-这个项目目前主要做转化/翻译 Markdown 语法的使用手册文档为 Vim 格式，用于方便
-在 Vim 中查看其离线文档。
+这个项目目前主要做转化/翻译 [Markdown 语法](http://daringfireball.net/projects/markdown/syntax)
+的使用手册文档为 Vim 格式，用于方便在 Vim 中查看其离线文档。
 
-例如安装文档后，可以直接 `:h markdown-link` 查看书写链接的格式。
+例如安装文档后，可以直接 `:h markdown-link` 查看如何书写链接的格式的文档。
 
 # Syntax
 已知的 Markdown 语法高亮支持已有人实现：
