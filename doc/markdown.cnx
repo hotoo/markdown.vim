@@ -1,79 +1,68 @@
-*Markdown.txt*  Markdown markup language.
+*markdown.txt*  Markdown 标记语言。
 
-            Markdown Syntax manual by John Gruber
+            Markdown 语法手册 by John Gruber
             http://daringfireball.net/projects/markdown/syntax
 
-    1. Overview                                         |markdown-overview|
-        1.1 Philosophy                                  |markdown-philosophy|
-        1.2 Inline HTML                                 |markdown-html|
-        1.3 Automatic Escaping for Special Characters   |markdown-auto-escapes|
-    2. Block Elements                                   |markdown-blocks|
-        2.1 Paragraphs and Line Breaks                  |markdown-paragraphs|
-        2.2 Headers                                     |markdown-headers|
-        2.3 Blockquotes                                 |markdown-blockquotes|
-        2.4 Lists                                       |markdown-lists|
-        2.5 Code Blocks                                 |markdown-code-block|
-        2.6 Horizontal Rules                            |markdown-horizontal|
-    3. Span Elements                                    |markdown-spans|
-        3.1 Links                                       |markdown-links|
-        3.2 Emphasis                                    |markdown-emphasis|
-        3.3 Code                                        |markdown-codes|
-        3.4 Images                                      |markdown-images|
-    4. Miscellaneous                                    |markdown-misc|
-        4.1 Backslash Escapes                           |markdown-escapes|
-        4.2 Automatic Links                             |markdown-auto-links|
+    1. 概述                                             |markdown-overview|
+        1.1 原则                                        |markdown-philosophy|
+        1.2 内联 HTML                                   |markdown-html|
+        1.3 特殊字符自动转义                            |markdown-auto-escapes|
+    2. 块级元素                                         |markdown-blocks|
+        2.1 段落与换行                                  |markdown-paragraphs|
+        2.2 标题                                        |markdown-headers|
+        2.3 块级引用                                    |markdown-blockquotes|
+        2.4 列表                                        |markdown-lists|
+        2.5 代码块                                      |markdown-code-block|
+        2.6 水平线                                      |markdown-horizontal|
+    3. 内联元素                                         |markdown-spans|
+        3.1 链接                                        |markdown-links|
+        3.2 粗体                                        |markdown-emphasis|
+        3.3 代码                                        |markdown-codes|
+        3.4 图像                                        |markdown-images|
+    4. 杂项                                             |markdown-misc|
+        4.1 反斜杠转义                                  |markdown-escapes|
+        4.2 自动链接                                    |markdown-auto-links|
 
 ==============================================================================
-Overview                                                    *markdown-overview*
+概述                                                        *markdown-overview*
 
 ------------------------------------------------------------------------------
-Philosophy                                                *markdown-philosophy*
+原则                                                      *markdown-philosophy*
 
-Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+Markdown 的目标是实现便于阅读和易于书写。
 
-Readability, however, is emphasized above all else. A Markdown-formatted
-document should be publishable as-is, as plain text, without looking like
-it’s been marked up with tags or formatting instructions. While Markdown’s
-syntax has been influenced by several existing text-to-HTML filters —
-including Setext(http://docutils.sourceforge.net/mirror/setext.html),
+可读性，无论如何是最重要的。一个 Markdown 化的文档，应该是可以原样，以纯文本
+格式，不带标签或格式化标记的进行发布的。虽然 Markdown 语法受到了几个现有的
+文本到 HTML 的过滤器 —包括 Setext(http://docutils.sourceforge.net/mirror/setext.html),
 atx(http://www.aaronsw.com/2002/atx/), Textile(http://textism.com/tools/textile/),
 reStructuredText(http://docutils.sourceforge.net/rst.html),
 Grutatext(http://www.triptico.com/software/grutatxt.html),
-and EtText(http://ettext.taint.org/doc/) —
-the single biggest source of inspiration for Markdown’s syntax
-is the format of plain text email.
+and EtText(http://ettext.taint.org/doc/) —的影响，但 Markdown 的一个最大灵感
+来源是纯文本格式的邮件。
 
-To this end, Markdown’s syntax is comprised entirely of punctuation characters,
-which punctuation characters have been carefully chosen so as to look like
-what they mean. E.g., asterisks around a word actually look like *emphasis*.
-Markdown lists look like, well, lists. Even blockquotes look like quoted
-passages of text, assuming you’ve ever used email.
+为了达到这个目的，Markdown 的语法完全由标点符号组成，这些符合都经过精心挑选，
+以便看起来像它们要表达的意思。Markdown 列表看起来也像一个列表，即使是引用文字
+看起来也像引述的文字段落，假如你曾经用过电子邮件。
 
 ------------------------------------------------------------------------------
-Inline HTML                                                     *markdown-html*
+内联 HTML                                                     *markdown-html*
 
-Markdown’s syntax is intended for one purpose: to be used as a format
-for writing for the web.
+Markdown 的语法只有一个目标：作为一个网络写作的格式。
 
-Markdown is not a replacement for HTML, or even close to it. Its syntax is
-very small, corresponding only to a very small subset of HTML tags.
-The idea is not to create a syntax that makes it easier to insert HTML tags.
-In my opinion, HTML tags are already easy to insert. The idea for Markdown
-is to make it easy to read, write, and edit prose. HTML is a publishing format;
-Markdown is a writing format. Thus, Markdown’s formatting syntax only addresses
-issues that can be conveyed in plain text.
+Markdown 不是 HTML 的替代品，它不以此为目的。Markdown 的语法很少，只对应了
+HTML 标签很小的一个子集。Markdown 不是要创建一个简易语法来插入到 HTML 标签中，
+就我看来，HTML 标签已经非常易于插入。Markdown 只是希望让文档更易读，便于书写和
+编辑。HTML 作为发布格式，Markdown 作为一个书写格式。因此，Markdown 语法格式
+只是一个用于可以转换的纯文本格式而已。
 
-For any markup that is not covered by Markdown’s syntax, you simply use
-HTML itself. There’s no need to preface it or delimit it to indicate that
-you’re switching from Markdown to HTML; you just use the tags.
+对于 Markdown 语法中不包含的任何标记，只需要简单的使用 HTML 标记本身就可以了。
+从 Markdown 切换到 HTML 不需要提前声明，只需要使用这些标记就好了。
 
-The only restrictions are that block-level HTML elements — e.g. <div>, <table>,
-<pre>, <p>, etc. — must be separated from surrounding content by blank lines,
-and the start and end tags of the block should not be indented with tabs or
-spaces. Markdown is smart enough not to add extra (unwanted) <p> tags around
-HTML block-level tags.
+唯一的限制就是，HTML 块级元素 —例如 <div>, <table>, <pre>, <p> 等等 —必须
+使用换行符将其与周围的内容分开来，并且块的起始和结束不应该使用制表符(<tab>)
+或空格来缩进。Markdown 很智能，不会在这些 HTML 块级标签外添加不需要的 <p> 标签。
 
-For example, to add an HTML table to a Markdown article:
+例如，添加一个 HTML 表格到 Markdown 文章中：
 >
     This is a regular paragraph.
 
@@ -85,15 +74,14 @@ For example, to add an HTML table to a Markdown article:
 
     This is another regular paragraph.
 <
-Note that Markdown formatting syntax is not processed within block-level
-HTML tags. E.g., you can’t use Markdown-style *emphasis* inside an HTML block.
+注意：Markdown 不支持 HTML 块级标签内部的语法，例如无法在 HTML 块中使用
+Markdown 风格的 `*emphasis*` 语法。
 
-Span-level HTML tags — e.g. <span>, <cite>, or <del> — can be used anywhere
-in a Markdown paragraph, list item, or header. If you want, you can even use
-HTML tags instead of Markdown formatting; e.g. if you’d prefer to use HTML <a>
-or <img> tags instead of Markdown’s link or image syntax, go right ahead.
+内联级别的 HTML 标签 —例如 <span>, <cite>, 或者 <del> —可以在任何地方使用
+Markdown 段落，列表项，或者标题。例如，如果你希望使用 HTML 的 <a> 或者 <img>
+标签，而不是 Markdown 的链接或图像语法，请便。
 
-Unlike block-level HTML tags, Markdown syntax is processed within span-level tags.
+不同于块级 HTML 标签，Markdown 语法可以在内联标签中使用。
 
 ------------------------------------------------------------------------------
 Automatic Escaping for Special Characters               *markdown-auto-escapes*
